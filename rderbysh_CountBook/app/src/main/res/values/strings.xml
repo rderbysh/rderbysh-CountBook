@@ -3,4 +3,5 @@
     <string name="enter_object">Enter an Object</string>
     <string name="number">Enter the Number Count</string>
     <string name="add">Add</string>
+    <string name="comment">Optional Comment</string>
 </resources>
