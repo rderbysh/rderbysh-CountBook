@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddObject"
-            android:parentActivityName=".MainActivity">
-        </activity>
+        <activity
+            android:name=".AddObject"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ViewObject"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".EditObject"
+            android:parentActivityName=".ViewObject"></activity>
     </application>
 
 </manifest>

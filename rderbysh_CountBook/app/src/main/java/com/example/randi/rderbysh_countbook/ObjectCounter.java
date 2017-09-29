@@ -1,5 +1,6 @@
 package com.example.randi.rderbysh_countbook;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -8,32 +9,32 @@ import java.util.Date;
 
 public class ObjectCounter {
 
-    private Date date;
+    private Calendar date;
     private String object;
     private int initial_counter;
     private int current_counter;
     private String comment;
 
-    private ObjectCounter() {
+    protected ObjectCounter() {
 
     }
 
     public ObjectCounter(String object, int initial_counter) {
         this.object = object;
-        this.date = date;
         this.initial_counter = initial_counter;
     }
 
     public ObjectCounter(String object,int initial_counter, String comment) {
         this.object = object;
-        this.date = getDate();
+        date = Calendar.getInstance();
+        date.setTime(new Date());
         this.initial_counter = initial_counter;
         this.current_counter = initial_counter;
         this.comment = comment;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(Date date1) {
+        date.setTime(date1);
     }
 
     public void setObject(String object) {
@@ -48,8 +49,11 @@ public class ObjectCounter {
         this.current_counter = current_counter;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        //int yy = date.get(Calendar.YEAR);
+        //int mm = date.get(Calendar.MONTH);
+        //int dd = date.get(Calendar.DAY_OF_MONTH);
+        return date.get(Calendar.YEAR) + "-" + date.get(Calendar.MONTH) + "-" + date.get(Calendar.DAY_OF_MONTH);
     }
 
     public String getObject() {
@@ -66,6 +70,6 @@ public class ObjectCounter {
 
     @Override
     public String toString() {
-        return "Object: " + object + " | Count: " + initial_counter + " | Comment: " + comment;
+        return "Object: " + object + " | Count: " + current_counter + " | Comment: " + comment;
     }
 }

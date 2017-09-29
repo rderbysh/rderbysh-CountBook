@@ -6,6 +6,7 @@ import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -52,15 +53,17 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<ObjectCounter>(this, android.R.layout.simple_list_item_1, objects);
         oldObjectsList.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-    }
 
-    /** Called when the user taps the Send button */
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        oldObjectsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                ObjectCounter entry = (ObjectCounter) adapterView.getAdapter().getItem(position);
+                Intent intent = new Intent(MainActivity.this, ViewObject.class);
+                intent.putExtra("position", position);
+                saveInFile();
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent1 = new Intent(MainActivity.this, AddObject.class);
         startActivity(intent1);
     }
+
 
     private void loadFromFile() {
         try{
