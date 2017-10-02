@@ -89,6 +89,7 @@
         android:id="@+id/Delete"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:onClick="delete"
         android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent" />
 

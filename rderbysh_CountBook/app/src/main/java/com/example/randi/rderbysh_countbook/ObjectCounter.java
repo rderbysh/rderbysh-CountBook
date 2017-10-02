@@ -41,6 +41,10 @@ public class ObjectCounter {
         this.object = object;
     }
 
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public void setInitial_counter(Integer initial_counter) {
         this.initial_counter = initial_counter;
     }
@@ -66,6 +70,10 @@ public class ObjectCounter {
 
     public Integer getCurrentCounter() {
         return current_counter;
+    }
+
+    public String getComment() {
+        return comment;
     }
 
     @Override

@@ -67,6 +67,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadFromFile();
+
+        //adapter = new ArrayAdapter<ObjectCounter>(this, android.R.layout.simple_list_item_1, objects);
+        //oldObjectsList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
     public void addButton(View view) {
         Intent intent1 = new Intent(MainActivity.this, AddObject.class);
         startActivity(intent1);

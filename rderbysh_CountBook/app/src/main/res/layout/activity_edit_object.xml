@@ -63,17 +63,6 @@
         android:layout_marginLeft="16dp"/>
 
     <EditText
-        android:id="@+id/editcurrent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="New Current Counter"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@id/editinit"
-        app:layout_constraintLeft_toRightOf="parent"
-        android:layout_marginLeft="16dp" />
-
-    <EditText
         android:id="@+id/editcomment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,7 +70,7 @@
         android:hint="New Comment"
         android:inputType="textPersonName"
         android:singleLine="false"
-        app:layout_constraintTop_toBottomOf="@id/editcurrent"
+        app:layout_constraintTop_toBottomOf="@id/editinit"
         app:layout_constraintLeft_toRightOf="parent"
         android:layout_marginLeft="16dp" />
 
@@ -89,8 +78,9 @@
         android:id="@+id/saveButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:onClick="save"
         android:text="Save"
-        app:layout_constraintBottom_toTopOf="parent"
-        android:layout_marginBottom="12dp" />
+        app:layout_constraintBottom_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
