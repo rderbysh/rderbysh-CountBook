@@ -33,7 +33,11 @@ public class ViewObject extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_object);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         loadFromFile();
 
         arrayPosition = getIntent().getIntExtra("position", 0);
@@ -42,6 +46,7 @@ public class ViewObject extends AppCompatActivity {
         System.out.println("list: " + list);
 
         fillInfo(arrayPosition, list);
+
     }
 
     private void fillInfo(int position, ObjectCounter list) {
@@ -97,8 +102,10 @@ public class ViewObject extends AppCompatActivity {
         startActivity(intent1);
     }
 
-    private void delete_Button() {
-
+    public void delete(View view) {
+        objects.remove(arrayPosition);
+        saveInFile();
+        finish();
     }
 
     private void loadFromFile() {
